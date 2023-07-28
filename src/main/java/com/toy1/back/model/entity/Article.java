@@ -31,10 +31,10 @@ public class Article {
     @Column
     private LocalDateTime updatedAt = LocalDateTime.now();
 
-    @OneToMany(mappedBy = "article")
+    @OneToMany(mappedBy = "article", cascade = CascadeType.REMOVE)
     private List<Comment> comments = new ArrayList<>();
 
-    @OneToMany(mappedBy = "article")
+    @OneToMany(mappedBy = "article", cascade = CascadeType.REMOVE)
     private List<Recommend> recommends = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
